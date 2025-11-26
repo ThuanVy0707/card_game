@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Điểm Tiến Lên Miền Nam</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🃏 Tính Điểm Tiến Lên Miền Nam</h1>
+        </header>
+
+        <main>
+            <!-- Player Management Section -->
+            <section class="player-section">
+                <h2>Quản Lý Người Chơi</h2>
+                <div class="add-player-form">
+                    <label for="playerName" class="sr-only">Tên người chơi</label>
+                    <input type="text" id="playerName" placeholder="Tên người chơi" maxlength="20" aria-label="Tên người chơi">
+                    <button id="addPlayerBtn" class="btn btn-primary">Thêm Người Chơi</button>
+                </div>
+            </section>
+
+            <!-- Score Settings Section -->
+            <section class="settings-section">
+                <h2>Cài Đặt Điểm</h2>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="basePoints">Điểm cơ bản (mỗi lá):</label>
+                        <input type="number" id="basePoints" value="1" min="1">
+                    </div>
+                    <div class="setting-item">
+                        <label for="instantWinMultiplier">Nhân điểm thắng tới trắng:</label>
+                        <input type="number" id="instantWinMultiplier" value="2" min="1">
+                    </div>
+                    <div class="setting-item">
+                        <label for="tenCardsMultiplier">Nhân điểm còn ≥10 lá:</label>
+                        <input type="number" id="tenCardsMultiplier" value="2" min="1">
+                    </div>
+                    <div class="setting-item">
+                        <label for="fullCardsMultiplier">Nhân điểm còn 13 lá (cháy):</label>
+                        <input type="number" id="fullCardsMultiplier" value="4" min="1">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Players Score Board -->
+            <section class="scoreboard-section">
+                <h2>Bảng Điểm</h2>
+                <div id="playersContainer" class="players-container">
+                    <!-- Players will be added here dynamically -->
+                </div>
+            </section>
+
+            <!-- Round Calculator Section -->
+            <section class="round-section">
+                <h2>Tính Điểm Ván</h2>
+                <div class="round-form">
+                    <div class="winner-select">
+                        <label for="winner">Người thắng:</label>
+                        <select id="winner">
+                            <option value="">-- Chọn người thắng --</option>
+                        </select>
+                    </div>
+                    <div class="instant-win-check">
+                        <label>
+                            <input type="checkbox" id="instantWin">
+                            Thắng tới trắng (không ai đánh được)
+                        </label>
+                    </div>
+                    <div id="remainingCardsContainer" class="remaining-cards-container">
+                        <!-- Remaining cards inputs will be added here -->
+                    </div>
+                    <button id="calculateRoundBtn" class="btn btn-success">Tính Điểm Ván Này</button>
+                </div>
+            </section>
+
+            <!-- Game History Section -->
+            <section class="history-section">
+                <h2>Lịch Sử Ván Đấu</h2>
+                <div id="historyContainer" class="history-container">
+                    <p class="no-history">Chưa có ván đấu nào.</p>
+                </div>
+            </section>
+
+            <!-- Actions Section -->
+            <section class="actions-section">
+                <button id="resetGameBtn" class="btn btn-danger">Bắt Đầu Lại</button>
+                <button id="undoLastRoundBtn" class="btn btn-warning">Hoàn Tác Ván Cuối</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 - Tiến Lên Miền Nam Score Calculator</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
